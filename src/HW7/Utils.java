@@ -2,16 +2,17 @@ package HW7;
 
 public class Utils {
     //поиск сотрудника в массиве по его имени
-    public static String getWorkerByName (Worker[] workers, String workersName) {
+    public static String getWorkerByName(Worker[] workers, String workersName) {
         for (int i = 0; i < workers.length; i++) {
             if (workers[i].getName().equals(workersName)) {
                 return workers[i].getName();
             }
-        } return "can't find " + workersName;
+        }
+        return "can't find " + workersName;
     }
 
 
-    public static String getAllWorkers (Worker[] workers, String workersName) {
+    public static String getAllWorkers(Worker[] workers, String workersName) {
         String allNames = "";
         for (int i = 0; i < workers.length; i++) {
             if (workers[i].getName().equals(workersName)) {
@@ -19,13 +20,13 @@ public class Utils {
             }
         }
         if (allNames.isEmpty()) { // если пусто
-        return "can't find " + workersName;
+            return "can't find " + workersName;
         } else {
             return allNames;
         }
     }
 
-    public static Worker findByName (Worker[] workers, String workerName) {
+    public static Worker findByName(Worker[] workers, String workerName) {
         for (int i = 0; i < workers.length; i++) {
             if (workerName.equals(workers[i].getName())) {
                 return workers[i];
@@ -35,11 +36,11 @@ public class Utils {
     }
 
     //поиск сотрудника в массиве по вхождению указанной строки в его имени
-    public static String getByPhrase (Worker[] workers , String phrase) {
+    public static String getByPhrase(Worker[] workers, String phrase) {
         String allNames = "";
         for (int i = 0; i < workers.length; i++) {
             if (workers[i].getName().toLowerCase().contains(phrase.toLowerCase())) {
-                allNames+=workers[i].getName() + "\n";
+                allNames += workers[i].getName() + "\n";
             }
         }
         if (allNames.isEmpty()) {
@@ -50,15 +51,16 @@ public class Utils {
     }
 
     //подсчет зарплатного бюджета для всех сотрудников в массиве
-    public static double getTotalBudget (Worker[] workers) {
+    public static double getTotalBudget(Worker[] workers) {
         double totalBudget = 0;
         for (int i = 0; i < workers.length; i++) {
-            totalBudget+=workers[i].getSalary();
+            totalBudget += workers[i].getSalary();
         }
         return totalBudget;
     }
+
     //поиск наименьшей зарплаты в массиве
-    public static double getMinSalary (Worker[] workers) {
+    public static double getMinSalary(Worker[] workers) {
         double min = workers[0].getSalary();
         for (int i = 0; i < workers.length; i++) {
             if (min > workers[i].getSalary()) {
@@ -66,10 +68,10 @@ public class Utils {
             }
         }
         return min;
-        }
+    }
 
     //поиск наименьшей зарплаты в массиве
-    public static double getMaxSalary (Worker[] workers) {
+    public static double getMaxSalary(Worker[] workers) {
         double max = workers[0].getSalary();
         for (int i = 0; i < workers.length; i++) {
             if (max < workers[i].getSalary()) {
@@ -80,7 +82,7 @@ public class Utils {
     }
 
     //поиск наименьшего количества подчиненных в массиве менеджеров
-    public static int getMinSubordinates (Manager[] managers) {
+    public static int getMinSubordinates(Manager[] managers) {
         int minSub = managers[0].getNumberOfSubordinates();
         for (int i = 0; i < managers.length; i++) {
             if (managers[i].getNumberOfSubordinates() < minSub) {
@@ -92,7 +94,7 @@ public class Utils {
 
 
     //поиск наибольшего количества подчиненных в массиве менеджеров
-    public static Manager getMaxSubordinates (Manager[] managers) {
+    public static Manager getMaxSubordinates(Manager[] managers) {
         Manager max = null;
         for (int i = 0; i < managers.length; i++) {
             if (max == null || max.getNumberOfSubordinates() < managers[i].getNumberOfSubordinates()) {
@@ -105,7 +107,7 @@ public class Utils {
     //поиск наибольшей надбавки
     // (разнице между базовой зарплатой и выплатой) в массиве менеджеров
 
-    public static double getMaxSalary (Manager[] managers) {
+    public static double getMaxSalary(Manager[] managers) {
         double max = 0;
         for (int i = 0; i < managers.length; i++) {
             if (max < (managers[i].getSalary() - managers[i].getBaseSalary())) {
@@ -115,7 +117,7 @@ public class Utils {
         return max;
     }
 
-    public static double getMinSalary (Manager[] managers) {
+    public static double getMinSalary(Manager[] managers) {
         double min = Double.MAX_VALUE;
         for (int i = 0; i < managers.length; i++) {
             double difference = managers[i].getSalary() - managers[i].getBaseSalary();
@@ -127,14 +129,7 @@ public class Utils {
     }
 
 
-
-
-
-
-
-
-
-    }
+}
 
 
 
